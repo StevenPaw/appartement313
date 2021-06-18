@@ -1,4 +1,5 @@
 ﻿using System;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,12 +14,14 @@ namespace _GAMEASSETS.Scripts
         private bool inElevator;
 
         [SerializeField] private bool canMove;
-
+        [SerializeField] private GameObject spriteGO;
         [SerializeField] private InputActionAsset inputAction;
         private InputAction moveAction;
         private InputAction jumpAction;
         private InputAction crouchAction;
         private InputAction interactAction;
+
+        [SerializeField] private Elevator elevatorInUse = null;
 
         private Interactable activeInteractable;
 
@@ -32,6 +35,18 @@ namespace _GAMEASSETS.Scripts
         {
             get => canMove;
             set => canMove = value;
+        }
+
+        public GameObject SpriteGO
+        {
+            get => spriteGO;
+            set => spriteGO = value;
+        }
+
+        public Elevator ElevatorInUse
+        {
+            get => elevatorInUse;
+            set => elevatorInUse = value;
         }
 
         private void Awake()
@@ -71,11 +86,34 @@ namespace _GAMEASSETS.Scripts
 
         public void OnInteract(InputAction.CallbackContext context)
         {
-            Debug.Log("Interacted!");
-            if (activeInteractable != null)
+            if (context.started)
             {
-                activeInteractable.onInteractEvent.Invoke(this);
-                Debug.Log("Event invoked!");
+                if (activeInteractable != null)
+                {
+                    activeInteractable.onInteractEvent.Invoke(this);
+                }
+            }
+        }
+
+        public void OnElevatorUp(InputAction.CallbackContext context)
+        {
+            if (elevatorInUse != null)
+            {
+                int currentLevel = elevatorInUse.Level;
+                Elevator targetElevator = ElevatorManager.GetUpElevator(currentLevel);
+                //transform.position = targetElevator.gameObject.transform.position;
+                transform.DOMove(targetElevator.DoorPosition, .5f);
+            }
+        }
+        
+        public void OnElevatorDown(InputAction.CallbackContext context)
+        {
+            if (elevatorInUse != null)
+            {
+                int currentLevel = elevatorInUse.Level;
+                Elevator targetElevator = ElevatorManager.GetDownElevator(currentLevel);
+                //transform.position = targetElevator.gameObject.transform.position;
+                transform.DOMove(targetElevator.DoorPosition, .5f);
             }
         }
     }

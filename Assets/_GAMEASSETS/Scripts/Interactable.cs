@@ -46,6 +46,6 @@ public class Interactable : MonoBehaviour
 
     private void DoInteraction(PlayerController playerController)
     {
-        Debug.Log("It was interacted!");
+        
     }
 }

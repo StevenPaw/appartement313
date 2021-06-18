@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4015798981227553938}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -0.0015000105, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1430074861116649008}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4698172854741733089}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4375, z: 0}
+  m_LocalPosition: {x: 0, y: 0.936, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1430074861116649008}
@@ -69,7 +69,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1430074861116649008}
-  - component: {fileID: 3398801386686198604}
   - component: {fileID: 7436724113405703215}
   - component: {fileID: 3796256057243937413}
   - component: {fileID: 6039699376546393505}
@@ -99,22 +98,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &3398801386686198604
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6943996660093394523}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.031888515}
-  m_Size: {x: 0.5, y: 0.936223}
-  m_Direction: 0
 --- !u!70 &7436724113405703215
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -128,7 +111,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.037687182}
+  m_Offset: {x: 0, y: 0.46}
   m_Size: {x: 0.5, y: 0.92462564}
   m_Direction: 0
 --- !u!50 &3796256057243937413
@@ -165,7 +148,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canMove: 1
+  spriteGO: {fileID: 8294976482333706839}
   inputAction: {fileID: -944628639613478452, guid: d87f03801d739754a83b11f608b39457, type: 3}
+  elevatorInUse: {fileID: 0}
 --- !u!114 &5825468495362707635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,7 +172,7 @@ MonoBehaviour:
     m_Bits: 1
   groundCheck: {fileID: 8468261677238943304}
   ceilingCheck: {fileID: 587528410171729981}
-  crouchDisableCollider: {fileID: 3398801386686198604}
+  crouchDisableCollider: {fileID: 0}
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -259,6 +244,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b19ec8c6-17a3-45f8-b0da-0cb54d7f624e
     m_ActionName: inGame/interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6039699376546393505}
+        m_TargetAssemblyTypeName: _GAMEASSETS.Scripts.PlayerController, Assembly-CSharp
+        m_MethodName: OnElevatorUp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 27023ce2-e445-4dcd-9218-f6b98f147509
+    m_ActionName: inGame/elevator[/Keyboard/s,/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6039699376546393505}
+        m_TargetAssemblyTypeName: _GAMEASSETS.Scripts.PlayerController, Assembly-CSharp
+        m_MethodName: OnElevatorDown
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d4e7031c-6043-4d3b-b6ab-8fc2c7ecc3b8
+    m_ActionName: inGame/elevator down[/Keyboard/s]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: inGame
@@ -289,7 +306,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8294976482333706839}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.4985, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1430074861116649008}

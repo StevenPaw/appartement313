@@ -356,7 +356,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8695906460558472775}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8829879554763700192}
@@ -386,6 +386,8 @@ MonoBehaviour:
   elevatorDoorRight: {fileID: 5452502422846820060}
   elevatorBackground: {fileID: 2320390497611978410}
   canBeAccessed: 1
+  elevatorLightColor: {r: 0.5741812, g: 0.6311338, b: 0.6509434, a: 1}
+  level: 1
 --- !u!61 &7694926673860422456
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -501,7 +503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4714912337238694067, guid: 90362c4590f62964aa908988d9fcb7f3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4714912337238694067, guid: 90362c4590f62964aa908988d9fcb7f3, type: 3}
       propertyPath: m_LocalRotation.w
