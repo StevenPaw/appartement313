@@ -8,16 +8,17 @@ using UnityEngine.UIElements;
 
 public class Elevator : MonoBehaviour
 {
-    [Header("Target Levels")]
-    [SerializeField] private GameObject elevatorUp; //The Elevator when traveling up
-    [SerializeField] private GameObject elevatorDown; //The Elevator when traveling down
-    
     [Header("Parts of Elevator")]
     [SerializeField] private GameObject elevatorFrame;
     [SerializeField] private GameObject elevatorDoorLeft;
     [SerializeField] private GameObject elevatorDoorRight;
     [SerializeField] private GameObject elevatorBackground;
 
+    [Header("UI")] 
+    [SerializeField] private GameObject buttonUp;
+    [SerializeField] private GameObject buttonDown;
+    [SerializeField] private Canvas buttonCanvas;
+    
     [Header("Settings")] 
     [SerializeField] private bool canBeAccessed = true;
     [SerializeField] private Color elevatorLightColor = Color.gray;
@@ -37,10 +38,17 @@ public class Elevator : MonoBehaviour
         set => level = value;
     }
     
+    public Vector3 DoorPosition
+    {
+        get => doorPosition;
+        set => doorPosition = value;
+    }
+    
     private void Start()
     {
-        player = GameObject.FindWithTag(GameTags.PLAYER);
-        playerController = player.GetComponent<PlayerController>();
+        buttonCanvas.worldCamera = Camera.main;
+        //player = GameObject.FindWithTag(GameTags.PLAYER);
+        //playerController = player.GetComponent<PlayerController>();
         animator = GetComponent<Animator>();
         doorPosition = new Vector3(transform.position.x, transform.position.y -.9f, transform.position.z);
         if (!ElevatorManager.AddLevel(this, level))
@@ -59,34 +67,43 @@ public class Elevator : MonoBehaviour
         animator.SetBool("isOpen", true);
     }
 
-    public Vector3 DoorPosition
-    {
-        get => doorPosition;
-        set => doorPosition = value;
-    }
-
     public void EnterLeaveElevator(PlayerController player)
     {
         if (ElevatorManager.PlayerInElevator == null)
         {
             player.CanMove = false;
+            player.ElevatorInUse = this;
+            player.MoveDirection = 0;
+            ElevatorManager.PlayerInElevator = player;
+
             playerRenderer = player.SpriteGO.GetComponent<SpriteRenderer>();
 
             playerRenderer.DOColor(elevatorLightColor, .3f);
-            player.transform.DOMove(doorPosition + Vector3.forward * 6, .2f).OnComplete(CloseDoors);
-            ElevatorManager.PlayerInElevator = player;
-            player.ElevatorInUse = this;
+            player.transform.DOMove(doorPosition + Vector3.forward * 1.5f, .2f).OnComplete(CloseDoors);
+
+            if (ElevatorManager.GetUpElevator(Level) != this)
+            {
+                buttonUp.SetActive(true);
+            }
+            if (ElevatorManager.GetDownElevator(Level) != this)
+            {
+                buttonDown.SetActive(true);
+            }
         }
         else if (ElevatorManager.PlayerInElevator == player)
         {
             player.CanMove = true;
-            playerRenderer = player.SpriteGO.GetComponent<SpriteRenderer>();
-            OpenDoors();
-            
-            player.transform.DOMove(doorPosition - Vector3.forward * 10, .2f).SetDelay(.2f);
-            playerRenderer.DOColor(Color.white, .3f).SetDelay(.2f);
-            ElevatorManager.PlayerInElevator = null;
             player.ElevatorInUse = null;
+            ElevatorManager.PlayerInElevator = null;
+            
+            playerRenderer = player.SpriteGO.GetComponent<SpriteRenderer>();
+            
+            OpenDoors();
+            player.transform.DOMove(doorPosition - Vector3.forward * 1f, .2f).SetDelay(.2f);
+            playerRenderer.DOColor(Color.white, .3f).SetDelay(.2f);
+
+            buttonUp.SetActive(false);
+            buttonDown.SetActive(false);
         }
         else
         {
@@ -94,15 +111,16 @@ public class Elevator : MonoBehaviour
         }
     }
     
-    
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (canBeAccessed)
         {
-            if (other.gameObject == player)
+            if (other.CompareTag(GameTags.PLAYER))
             {
-                OpenDoors();
+                if (ElevatorManager.PlayerInElevator == null)
+                {
+                    OpenDoors();
+                }
             }
         }
     }
@@ -111,10 +129,38 @@ public class Elevator : MonoBehaviour
     {
         if (canBeAccessed)
         {
-            if (other.gameObject == player)
+            if (other.CompareTag(GameTags.PLAYER))
             {
-                CloseDoors();
+                if (ElevatorManager.PlayerInElevator == null)
+                {
+                    CloseDoors();
+                    
+                    buttonUp.SetActive(false);
+                    buttonDown.SetActive(false);
+                }
             }
         }
+    }
+
+    public void UpdateButtons()
+    {
+        if (ElevatorManager.GetUpElevator(Level) != this)
+        {
+            buttonUp.SetActive(true);
+        }
+        if (ElevatorManager.GetDownElevator(Level) != this)
+        {
+            buttonDown.SetActive(true);
+        }
+    }
+
+    public void OnButtonUpPress()
+    {
+        ElevatorManager.PlayerInElevator.goElevatorUp();
+    }
+    
+    public void OnButtonDownPress()
+    {
+        ElevatorManager.PlayerInElevator.goElevatorDown();
     }
 }

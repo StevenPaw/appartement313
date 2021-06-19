@@ -29,6 +29,7 @@ namespace _GAMEASSETS.Scripts
         {
             if (GetElevatorByLevel(currentLevel + 1) != null)
             {
+                
                 return GetElevatorByLevel(currentLevel + 1);
             }
             else

@@ -49,13 +49,19 @@ namespace _GAMEASSETS.Scripts
             set => elevatorInUse = value;
         }
 
+        public float MoveDirection
+        {
+            get => moveDirection;
+            set => moveDirection = value;
+        }
+
         private void Awake()
         {
             moveAction = inputAction["move"];
             jumpAction = inputAction["jump"];
             crouchAction = inputAction["crouch"];
             interactAction = inputAction["interact"];
-            
+
             characterController = GetComponent<CharacterController2D>();
         }
 
@@ -97,23 +103,43 @@ namespace _GAMEASSETS.Scripts
 
         public void OnElevatorUp(InputAction.CallbackContext context)
         {
+            if (context.started)
+            {
+                goElevatorUp();
+            }
+        }
+
+        public void goElevatorUp()
+        {
             if (elevatorInUse != null)
             {
                 int currentLevel = elevatorInUse.Level;
                 Elevator targetElevator = ElevatorManager.GetUpElevator(currentLevel);
                 //transform.position = targetElevator.gameObject.transform.position;
-                transform.DOMove(targetElevator.DoorPosition, .5f);
+                transform.DOMove(targetElevator.DoorPosition + Vector3.forward * 1.5f, .5f);
+                elevatorInUse = targetElevator;
+                targetElevator.UpdateButtons();
             }
         }
         
         public void OnElevatorDown(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                goElevatorDown();
+            }
+        }
+
+        public void goElevatorDown()
         {
             if (elevatorInUse != null)
             {
                 int currentLevel = elevatorInUse.Level;
                 Elevator targetElevator = ElevatorManager.GetDownElevator(currentLevel);
                 //transform.position = targetElevator.gameObject.transform.position;
-                transform.DOMove(targetElevator.DoorPosition, .5f);
+                transform.DOMove(targetElevator.DoorPosition + Vector3.forward * 1.5f, .5f);
+                elevatorInUse = targetElevator;
+                targetElevator.UpdateButtons();
             }
         }
     }
