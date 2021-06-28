@@ -16,6 +16,7 @@ namespace _GAMEASSETS.Scripts
         [SerializeField] private bool canMove;
         [SerializeField] private GameObject spriteGO;
         [SerializeField] private InputActionAsset inputAction;
+        [SerializeField] private Animator spriteAnimator;
         private InputAction moveAction;
         private InputAction jumpAction;
         private InputAction crouchAction;
@@ -79,6 +80,15 @@ namespace _GAMEASSETS.Scripts
                 }
 
                 characterController.Move(moveDirection, isCrouching, isJumping);
+
+                if (moveDirection != 0)
+                {
+                    spriteAnimator.SetBool("isWalking", true);
+                }
+                else
+                {
+                    spriteAnimator.SetBool("isWalking", false);
+                }
             }
         }
 
