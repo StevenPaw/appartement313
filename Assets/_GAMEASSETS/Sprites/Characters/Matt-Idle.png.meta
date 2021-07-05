@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 44acefeb4454cfd4991b8be568499f80
+guid: 4967a5cf6a899a04d85053c1e1c8e856
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1269858420946933712
-    second: Gerda-Idle_0
+      213: -466587548273318788
+    second: Matt-Idle_0
   - first:
-      213: -4383851647644561877
-    second: Gerda-Idle_1
+      213: 5048234520429314687
+    second: Matt-Idle_1
   - first:
-      213: -5597105798068059653
-    second: Gerda-Idle_2
+      213: -1199269473272097230
+    second: Matt-Idle_2
   - first:
-      213: -406081987604411871
-    second: Gerda-Idle_3
+      213: 7293767388069144568
+    second: Matt-Idle_3
   - first:
-      213: 7111350848886866810
-    second: Gerda-Idle_4
+      213: -6035495592491385504
+    second: Matt-Idle_4
   - first:
-      213: 5822272671781691864
-    second: Gerda-Idle_5
+      213: -8467253044913805363
+    second: Matt-Idle_5
   - first:
-      213: -5142049833028091958
-    second: Gerda-Idle_6
+      213: -8630646013606043736
+    second: Matt-Idle_6
   - first:
-      213: 5362178697784816110
-    second: Gerda-Idle_7
+      213: 171963571915186142
+    second: Matt-Idle_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -151,7 +151,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gerda-Idle_0
+      name: Matt-Idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -159,20 +159,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d7949f71817f9110800000000000000
-      internalID: 1269858420946933712
+      spriteID: c746c80d8195689f0800000000000000
+      internalID: -466587548273318788
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gerda-Idle_1
+      name: Matt-Idle_1
       rect:
         serializedVersion: 2
         x: 16
@@ -180,20 +180,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2e8222372e6923c0800000000000000
-      internalID: -4383851647644561877
+      spriteID: f72cd05bc8eee0640800000000000000
+      internalID: 5048234520429314687
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gerda-Idle_2
+      name: Matt-Idle_2
       rect:
         serializedVersion: 2
         x: 32
@@ -201,20 +201,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf1cfdf6ee51352b0800000000000000
-      internalID: -5597105798068059653
+      spriteID: 23695af94c65b5fe0800000000000000
+      internalID: -1199269473272097230
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gerda-Idle_3
+      name: Matt-Idle_3
       rect:
         serializedVersion: 2
         x: 48
@@ -222,20 +222,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12a8723759e4d5af0800000000000000
-      internalID: -406081987604411871
+      spriteID: 8f7a030abcaa83560800000000000000
+      internalID: 7293767388069144568
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gerda-Idle_4
+      name: Matt-Idle_4
       rect:
         serializedVersion: 2
         x: 64
@@ -243,20 +243,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7303156be790b260800000000000000
-      internalID: 7111350848886866810
+      spriteID: 06d7d1e6cbc9d3ca0800000000000000
+      internalID: -6035495592491385504
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gerda-Idle_5
+      name: Matt-Idle_5
       rect:
         serializedVersion: 2
         x: 80
@@ -264,20 +264,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d12303b52edcc050800000000000000
-      internalID: 5822272671781691864
+      spriteID: dc7619297364e7a80800000000000000
+      internalID: -8467253044913805363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gerda-Idle_6
+      name: Matt-Idle_6
       rect:
         serializedVersion: 2
         x: 96
@@ -285,20 +285,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: acff00dabe4c3a8b0800000000000000
-      internalID: -5142049833028091958
+      spriteID: 8afded08d29c93880800000000000000
+      internalID: -8630646013606043736
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gerda-Idle_7
+      name: Matt-Idle_7
       rect:
         serializedVersion: 2
         x: 112
@@ -306,14 +306,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee171a79d194a6a40800000000000000
-      internalID: 5362178697784816110
+      spriteID: edfdf4225ffe26200800000000000000
+      internalID: 171963571915186142
       vertices: []
       indices: 
       edges: []

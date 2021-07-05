@@ -23,6 +23,7 @@ namespace _GAMEASSETS.Scripts
         private InputAction interactAction;
 
         [SerializeField] private Elevator elevatorInUse = null;
+        [SerializeField] private InteractableNPC activeNPC;
 
         private Interactable activeInteractable;
 
